@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: #02040a;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: #fff;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.font-display {
+  font-family: 'Archivo Black', 'Arial Black', sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+kbd {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.07);
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ---- glow ---- */
+.glow-sky { text-shadow: 0 0 18px rgba(56, 189, 248, 0.55); }
+.glow-rose { text-shadow: 0 0 18px rgba(251, 113, 133, 0.55); }
+.glow-white { text-shadow: 0 0 30px rgba(255, 255, 255, 0.55); }
+.glow-soft { filter: drop-shadow(0 0 24px rgba(125, 211, 252, 0.35)); }
+.glow-sky-strong {
+  text-shadow:
+    0 0 20px rgba(56, 189, 248, 0.9),
+    0 0 60px rgba(56, 189, 248, 0.5);
+}
+.glow-rose-strong {
+  text-shadow:
+    0 0 20px rgba(251, 113, 133, 0.9),
+    0 0 60px rgba(251, 113, 133, 0.5);
+}
+
+/* ---- animazioni ---- */
+@keyframes goalIn {
+  0% { transform: scale(0.2) rotate(-6deg); opacity: 0; }
+  55% { transform: scale(1.12) rotate(2deg); opacity: 1; }
+  75% { transform: scale(0.96) rotate(0deg); }
+  100% { transform: scale(1); }
+}
+@keyframes goalOut {
+  to { transform: scale(1.25); opacity: 0; filter: blur(6px); }
+}
+.goal-banner {
+  animation:
+    goalIn 0.5s cubic-bezier(0.2, 1.4, 0.3, 1) both,
+    goalOut 0.35s ease-in 1.45s forwards;
+}
+
+@keyframes countPop {
+  0% { transform: scale(1.8); opacity: 0; }
+  40% { transform: scale(0.95); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.count-pop {
+  animation: countPop 0.55s cubic-bezier(0.2, 1.3, 0.35, 1) both;
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(22px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.menu-stagger > * {
+  animation: fadeUp 0.6s cubic-bezier(0.2, 0.9, 0.3, 1) backwards;
+}
+.menu-stagger > *:nth-child(1) { animation-delay: 0.04s; }
+.menu-stagger > *:nth-child(2) { animation-delay: 0.12s; }
+.menu-stagger > *:nth-child(3) { animation-delay: 0.2s; }
+.menu-stagger > *:nth-child(4) { animation-delay: 0.28s; }
+.menu-stagger > *:nth-child(5) { animation-delay: 0.36s; }
+.menu-stagger > *:nth-child(6) { animation-delay: 0.44s; }
+.menu-stagger > *:nth-child(7) { animation-delay: 0.52s; }
+
+@keyframes playGlow {
+  0%, 100% { box-shadow: 0 0 26px rgba(56, 189, 248, 0.45), 0 0 70px rgba(56, 189, 248, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.7), 0 0 100px rgba(56, 189, 248, 0.3); }
+}
+.btn-play {
+  animation: playGlow 2.4s ease-in-out infinite;
+}
+
+canvas {
+  display: block;
+  touch-action: none;
+}
